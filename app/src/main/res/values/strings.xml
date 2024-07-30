@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">E-commerce</string>
-    <string name="welcome_to_your_app_name_elevate_your_calisthenics_with_our_gear_push_limits_achieve_greatness_and_look_unstoppable">
-Welcome to Thenics! Elevate your calisthenics with our gear. Push limits, achieve greatness, and look unstoppable.</string>
+    <string name="elevate_your_calisthenics_with_our_gear_push_limits_achieve_greatness_and_look_unstoppable">
+Elevate your calisthenics with our gear. Push limits, achieve greatness, and look unstoppable.</string>
     <string name="join_us">Join Us</string>
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
@@ -12,4 +12,8 @@ Welcome to Thenics! Elevate your calisthenics with our gear. Push limits, achiev
     <string name="sign_up">Sign Up</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="hi_welcome_back_you_ve_been_missed">Hi! welcome back, you\' ve been missed</string>
+    <string name="welcome_to_gravity_gear">Welcome to GravityGear</string>
+    <string name="forgotten_your_password">Forgotten your password?</string>
+    <string name="reset_password">Reset Password</string>
 </resources>

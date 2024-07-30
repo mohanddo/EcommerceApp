@@ -9,21 +9,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.e_commerce.databinding.ActivitySignUpBinding
+import com.example.e_commerce.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-
-class SignUpActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignUpBinding
+class SignInActivity : AppCompatActivity() {
+    lateinit var binding : ActivitySignInBinding
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -32,31 +32,34 @@ class SignUpActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        val signUp = binding.signup
-        signUp.setOnClickListener {
-            val password = binding.password.text.toString()
+        val signin = binding.signin
+        signin.setOnClickListener {
             val email = binding.email.text.toString()
-            val fullName = binding.fullName.text.toString()
-            signUp(email, password)
+            val password = binding.password.text.toString()
+            signin(email, password)
         }
 
-        val signin = binding.signin
-        val mSpannableString = SpannableString("Sign In")
-        mSpannableString.setSpan(UnderlineSpan(), 0, mSpannableString.length, 0)
-        signin.text = mSpannableString
-
-        signin.setOnClickListener {
-            val i = Intent(this, SignInActivity::class.java)
+        val signup = binding.signup
+        val signUpSpannableString = SpannableString("Sign Up")
+        signUpSpannableString.setSpan(UnderlineSpan(), 0, signUpSpannableString.length, 0)
+        signup.text = signUpSpannableString
+        signup.setOnClickListener {
+            val i = Intent(this, SignUpActivity::class.java)
             startActivity(i)
         }
 
-
+        val resetPassword = binding.resetPassword
+        val resetPasswordSpannableString = SpannableString("Forgotten your password?")
+        resetPasswordSpannableString.setSpan(UnderlineSpan(), 0, resetPasswordSpannableString.length, 0)
+        resetPassword.text = resetPasswordSpannableString
+        resetPassword.setOnClickListener {
+            val i = Intent(this, ResetPasswordActivity::class.java)
+            startActivity(i)
+        }
     }
 
-
-
-    private fun signUp(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
+    private fun signin(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
@@ -65,14 +68,15 @@ class SignUpActivity : AppCompatActivity() {
                         "Authentication successed",
                         Toast.LENGTH_LONG,
                     ).show()
-
                 } else {
                     Toast.makeText(
                         baseContext,
-                        "Authentication Failed.",
-                        Toast.LENGTH_LONG,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
                     ).show()
+
                 }
             }
     }
+
 }
