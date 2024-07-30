@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WelcomeActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -41,7 +41,7 @@
         android:id="@+id/joinus"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/join_us_button_background"
+        android:background="@drawable/bc_join_us_button"
         android:fontFamily="@font/helveticanowtext_medium"
         android:text="@string/join_us"
         android:textAllCaps="false"
@@ -58,7 +58,7 @@
         android:id="@+id/signin"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/sign_in_button_background"
+        android:background="@drawable/bc_sign_in_button"
         android:fontFamily="@font/helveticanowtext_medium"
         android:text="@string/sign_in"
         android:textAllCaps="false"

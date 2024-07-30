@@ -23,7 +23,7 @@ class SplashScreen : AppCompatActivity() {
 
         Handler().postDelayed({
             // Start main activity after the duration
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, WelcomeActivity::class.java))
             // Finish the splash activity so that the user can't go back to it
             finish()
         }, splashScreenDuration)

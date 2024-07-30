@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">E-commerce</string>
+    <string name="welcome_to_your_app_name_elevate_your_calisthenics_with_our_gear_push_limits_achieve_greatness_and_look_unstoppable">
+Welcome to Thenics! Elevate your calisthenics with our gear. Push limits, achieve greatness, and look unstoppable.</string>
+    <string name="join_us">Join Us</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_account">Create Account</string>
+    <string name="please_fill_your_information_below_or_sign_in_if_you_already_have_an_account">Please fill your information below or sign in if you already have an account.</string>
+    <string name="email">Email</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>
