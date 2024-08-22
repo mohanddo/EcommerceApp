@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".EditAccountActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp">
+        android:layout_marginVertical="24dp"
+        android:layout_marginHorizontal="24dp">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
             android:id="@+id/CancelBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="16dp"
             android:gravity="start|center_vertical"
             android:fontFamily="@font/helveticanowtext_regular"
             android:text="@string/cancel"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:background="@null"
-            android:textAllCaps="false"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_cancel"
             />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/SaveBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,12 +38,14 @@
             android:enabled="false"
             android:fontFamily="@font/helveticanowtext_regular"
             android:text="@string/save"
-            android:textColor="@color/gray600"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:background="@null"
             android:textAllCaps="false"
             android:gravity="end|center_vertical"
-            />
+            android:drawableEnd="@drawable/ic_save"
+            android:drawablePadding="8dp"/>
+
 
     </LinearLayout>
 
@@ -71,8 +74,18 @@
         android:id="@+id/FullNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Meghaoui Mohand Amokrane"
-        android:layout_marginHorizontal="16dp"/>
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Meghaoui Mohand Amokrane"
+        android:textColorHint="#5F5F5F"
+        android:padding="8dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/bck_sigin_input"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="12dp"
+        android:minHeight="48dp"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -85,4 +98,4 @@
 
 
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

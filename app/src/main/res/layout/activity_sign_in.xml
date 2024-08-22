@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
     tools:context=".SignUpActivity">
 
     <TextView
@@ -16,8 +18,7 @@
         android:text="@string/sign_in"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="28sp"
-        android:layout_marginTop="64dp"/>
+        android:textSize="28sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -34,48 +35,56 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:textColorHint="@color/akli_gray"
+        android:padding="8dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/bck_sigin_input"
+        android:drawableEnd="@drawable/ic_email"
+        android:drawablePadding="12dp"
+        android:minHeight="48dp"/>
 
-    <EditText
-        android:id="@+id/password"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-      />
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/resetPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:textColor="@color/black"
-        android:text="@string/forgotten_your_password"
-        android:textAllCaps="false"
-        android:fontFamily="@font/helveticanowtext_regular"
-        android:textSize="16sp"
-        />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+            android:ems="10"
+            android:textColorHint="@color/black"
+            android:hint="@string/password"
+            android:background="@drawable/bck_sigin_input"
+            android:inputType="textPassword"
+            android:minHeight="48dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signin"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="44dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/sign_in"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:fontFamily="@font/helveticanowtext_medium"
         android:textAllCaps="false"
-        android:background="@drawable/bc_sign_up_button"
-        android:layout_marginBottom="16dp"
+        android:background="@drawable/bck_butt_sing"
+        android:layout_marginTop="50dp"
         />
 
     <ProgressBar
@@ -86,11 +95,13 @@
         android:layout_gravity="center_horizontal"
         android:visibility="gone"/>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="24dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,12 +113,12 @@
             android:layout_marginEnd="4dp"
             />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
             android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:textColor="@color/black"
+            android:textColor="@color/lightBlue"
             android:text="@string/sign_up"
             android:textAllCaps="false"
             android:fontFamily="@font/helveticanowtext_regular"
@@ -117,4 +128,19 @@
             />
     </LinearLayout>
 
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/resetPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/lightBlue"
+        android:text="@string/forgotten_your_password"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        android:fontFamily="@font/helveticanowtext_regular"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

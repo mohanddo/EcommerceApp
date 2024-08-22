@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".user.ProfileFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp">
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="24dp">
 
         <TextView
             android:layout_width="0dp"
@@ -20,21 +23,23 @@
             android:text="@string/account"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/EditBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.18"
             android:layout_gravity="start"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/helveticanowtext_regular"
+            android:fontFamily="@font/helveticanowtext_medium"
             android:text="@string/edit"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:background="@null"
             android:textAllCaps="false"
-            android:gravity="end|center_vertical"/>
+            android:gravity="end|center_vertical"
+            android:drawableEnd="@drawable/ic_pencil"
+            android:drawablePadding="8dp"/>
 
     </LinearLayout>
 
@@ -44,55 +49,74 @@
         android:layout_height="150dp"
         android:src="@drawable/pic_default_profile"
         android:layout_gravity="center"
-        />
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="12dp"/>
 
     <TextView
         android:id="@+id/fullName"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginVertical="16dp"
         android:fontFamily="@font/helveticanowtext_regular"
         android:text="Meghaoui Mohand Amokrane"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="16sp"
+        android:background="@drawable/bck_sigin_input"
+        android:padding="8dp"
+        android:drawableStart="@drawable/ic_person2"
+        android:drawablePadding="8dp"
         />
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginVertical="16dp"
         android:fontFamily="@font/helveticanowtext_regular"
         android:text="mohandmeghaoui0@gmail.com"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_email"
+        android:background="@drawable/bck_sigin_input"
+
+
         />
 
     <TextView
         android:id="@+id/phoneNumber"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="24dp"
         android:fontFamily="@font/helveticanowtext_regular"
         android:text="0541422180"
         android:textColor="@color/black"
-        android:textSize="12sp"
-        />
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:drawableStart="@drawable/ic_phone"
+        android:drawablePadding="8dp"
+        android:background="@drawable/bck_sigin_input"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logout"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="44dp"
+        android:layout_marginTop="44dp"
         android:text="@string/logout"
         android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
         android:fontFamily="@font/helveticanowtext_medium"
         android:background="@drawable/bc_cancelorder_confirmreception"
         android:backgroundTint="@color/red"
         android:textAllCaps="false"
         />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
