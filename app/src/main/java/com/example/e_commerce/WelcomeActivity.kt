@@ -1,20 +1,27 @@
 package com.example.e_commerce
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.e_commerce.admin.ProductsAdminActivity
 import com.example.e_commerce.databinding.ActivityWelcomeBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.e_commerce.models.User
+import com.example.e_commerce.user.UserActivity
+import com.example.e_commerce.utils.FirebaseUtil
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.example.e_commerce.utils.FirebaseUtil.usersRef
+
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
-    private lateinit var auth: FirebaseAuth
     private lateinit var joinUs: Button
     private lateinit var signIn: Button
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,17 +48,6 @@ class WelcomeActivity : AppCompatActivity() {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
             finish()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        auth = Firebase.auth
-
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
         }
     }
 }

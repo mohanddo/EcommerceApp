@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    app:contentPadding="16dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meghaoui Mohand Amokrane"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/helveticanowtext_regular"
+                android:layout_marginBottom="8dp"
+                />
+
+            <TextView
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0541422180"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/helveticanowtext_regular"
+                android:layout_marginBottom="8dp"
+                />
+
+            <TextView
+                android:id="@+id/wilayaAndRegion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alger (El Achour)"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/helveticanowtext_regular"
+                android:layout_marginBottom="8dp"
+                />
+
+            <TextView
+                android:id="@+id/totalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="US$120"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/helveticanowtext_regular"
+                android:layout_marginBottom="8dp"
+                />
+
+            <TextView
+                android:id="@+id/productNames"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heria Weatherproof Jacket - Black"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/helveticanowtext_regular"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            
+            <TextView
+                android:id="@+id/OrderState"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="@string/waiting"
+                android:fontFamily="@font/helveticanowtext_medium"
+                android:background="#FFA500"
+                android:textAllCaps="false"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/shipmentType"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="@string/domicil"
+                android:fontFamily="@font/helveticanowtext_medium"
+                android:background="#FFA500"
+                android:textAllCaps="false"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancelOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bc_cancelorder_confirmreception"
+            android:backgroundTint="@color/red"
+            android:fontFamily="@font/helveticanowtext_medium"
+            android:text="@string/cancel_order"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirmReception"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/helveticanowtext_medium"
+            android:text="Confirm Reception"
+            android:background="@drawable/bc_cancelorder_confirmreception"
+            android:backgroundTint="@color/lightBlue"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:layout_marginTop="16dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:progressTint="@color/black"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

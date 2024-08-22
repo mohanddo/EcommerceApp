@@ -4,18 +4,30 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.view.View
+import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.e_commerce.admin.ProductsAdminActivity
 import com.example.e_commerce.databinding.ActivitySignInBinding
+import com.example.e_commerce.utils.FirebaseUtil
+import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class SignInActivity : AppCompatActivity() {
     lateinit var binding : ActivitySignInBinding
+    private lateinit var progressBar: ProgressBar
+    private lateinit var signin: Button
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +44,17 @@ class SignInActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        val signin = binding.signin
+        progressBar = binding.progressBar
+
+        signin = binding.signin
         signin.setOnClickListener {
-            val email = binding.email.text.toString()
-            val password = binding.password.text.toString()
-            signin(email, password)
+            val email = binding.email
+            val password = binding.password
+            if(!FirebaseUtil.isEditTextEmpty(email) && !FirebaseUtil.isEditTextEmpty(password)) {
+                signin(email.text.toString(),
+                    password.text.toString())
+            }
+
         }
 
         val signup = binding.signup
@@ -46,6 +64,7 @@ class SignInActivity : AppCompatActivity() {
         signup.setOnClickListener {
             val i = Intent(this, SignUpActivity::class.java)
             startActivity(i)
+            finish()
         }
 
         val resetPassword = binding.resetPassword
@@ -59,23 +78,29 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun signin(email: String, password: String) {
+
+        progressBar.visibility = View.VISIBLE
+        signin.isEnabled = false
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication successed",
-                        Toast.LENGTH_LONG,
-                    ).show()
+                    val i = Intent(this, ProductsAdminActivity::class.java)
+                    startActivity(i)
+                    finish()
                 } else {
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
-
+                    val exceptionMessage = when (task.exception) {
+                        is FirebaseAuthInvalidCredentialsException, is
+                        FirebaseAuthInvalidUserException -> "Wrong email or password."
+                        is FirebaseNetworkException -> "Network error. Please try again."
+                        is FirebaseTooManyRequestsException -> "Too many requests. Please try again later."
+                        is FirebaseAuthRecentLoginRequiredException -> "Recent login required. Please log in again."
+                        else -> "Sign-in failed: ${task.exception?.message}"
+                    }
+                    Toast.makeText(this, exceptionMessage, Toast.LENGTH_LONG).show()
+                    signin.isEnabled = true
                 }
+                progressBar.visibility = View.GONE
             }
     }
 

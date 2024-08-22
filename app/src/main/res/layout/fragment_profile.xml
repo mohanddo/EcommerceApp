@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".user.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/helveticanowtext_medium"
+            android:text="@string/account"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:gravity="center_vertical"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/EditBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/helveticanowtext_regular"
+            android:text="@string/edit"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:background="@null"
+            android:textAllCaps="false"
+            android:gravity="end|center_vertical"/>
+
+    </LinearLayout>
+
+    <com.github.abdularis.civ.CircleImageView
+        android:id="@+id/profilePic"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/pic_default_profile"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/fullName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="16dp"
+        android:fontFamily="@font/helveticanowtext_regular"
+        android:text="Meghaoui Mohand Amokrane"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="16dp"
+        android:fontFamily="@font/helveticanowtext_regular"
+        android:text="mohandmeghaoui0@gmail.com"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="16dp"
+        android:fontFamily="@font/helveticanowtext_regular"
+        android:text="0541422180"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:fontFamily="@font/helveticanowtext_medium"
+        android:background="@drawable/bc_cancelorder_confirmreception"
+        android:backgroundTint="@color/red"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

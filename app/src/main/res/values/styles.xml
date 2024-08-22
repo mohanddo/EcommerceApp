@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:fontFamily">@font/helveticanowtext_regular</item> <!-- Replace with your font -->
+        <item name="android:textSize">14sp</item> <!-- Customize as needed -->
+        <item name="android:textColor">@color/red</item> <!-- Customize as needed -->
+    </style>
+</resources>

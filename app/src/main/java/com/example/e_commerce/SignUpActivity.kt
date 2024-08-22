@@ -4,20 +4,31 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.e_commerce.admin.ProductsAdminActivity
 import com.example.e_commerce.databinding.ActivitySignUpBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.e_commerce.models.User
+import com.example.e_commerce.utils.FirebaseUtil
+import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.FirebaseTooManyRequestsException
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var auth: FirebaseAuth
+
+    private lateinit var progressBar: ProgressBar
+    private lateinit var signUpBtn: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,14 +41,22 @@ class SignUpActivity : AppCompatActivity() {
             insets
         }
 
-        auth = Firebase.auth
+        progressBar = binding.progressBar
 
-        val signUp = binding.signup
-        signUp.setOnClickListener {
-            val password = binding.password.text.toString()
-            val email = binding.email.text.toString()
-            val fullName = binding.fullName.text.toString()
-            signUp(email, password)
+        signUpBtn = binding.signup
+        val passwordEditText = binding.password
+        val emailEditText = binding.email
+        val fullNameEditText = binding.fullName
+        val phoneNumberEditText = binding.phoneNumber
+        signUpBtn.setOnClickListener {
+
+            if(!FirebaseUtil.isEditTextEmpty(fullNameEditText) && !FirebaseUtil.isEditTextEmpty(phoneNumberEditText) && !FirebaseUtil.isEditTextEmpty(emailEditText) && FirebaseUtil.isValidPassword(passwordEditText)) {
+                signUp(emailEditText,
+                    phoneNumberEditText,
+                    passwordEditText,
+                    fullNameEditText)
+            }
+
         }
 
         val signin = binding.signin
@@ -48,6 +67,7 @@ class SignUpActivity : AppCompatActivity() {
         signin.setOnClickListener {
             val i = Intent(this, SignInActivity::class.java)
             startActivity(i)
+            finish()
         }
 
 
@@ -55,24 +75,46 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-    private fun signUp(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
+    private fun signUp(emailEditText: EditText, phoneNumberEditText: EditText, passwordEditText: EditText, fullNameEditText: EditText) {
+
+        progressBar.visibility = View.VISIBLE
+        signUpBtn.isEnabled = false
+
+        val email = emailEditText.text.toString().trim()
+        val password = passwordEditText.text.toString().trim()
+        val fullName = fullNameEditText.text.toString().trim()
+        val phoneNumber = phoneNumberEditText.text.toString().trim()
+
+        FirebaseUtil.auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication successed",
-                        Toast.LENGTH_LONG,
-                    ).show()
-
+                    Toast.makeText(this, "User created successfully!", Toast.LENGTH_SHORT).show()
+                    writeUserToDB(email, phoneNumber, fullName)
+//                    Util.sendEmailVerification(this)
+                    val i = Intent(this, ProductsAdminActivity::class.java)
+//                    i.putExtra("Email", email)
+                    startActivity(i)
                 } else {
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication Failed.",
-                        Toast.LENGTH_LONG,
-                    ).show()
+                    val exceptionMessage = when (task.exception) {
+                        is FirebaseAuthInvalidCredentialsException -> "Invalid email format."
+                        is FirebaseAuthUserCollisionException -> "Email is already in use."
+                        is FirebaseNetworkException -> "Network error. Please try again."
+                        is FirebaseTooManyRequestsException -> "Too many requests. Please try again later."
+                        else -> "User creation failed: ${task.exception?.message}"
+                    }
+                    Toast.makeText(this, exceptionMessage, Toast.LENGTH_LONG).show()
+                    Log.e("Error", task.exception!!.message!!)
+                    signUpBtn.isEnabled = true
                 }
+                progressBar.visibility = View.GONE
             }
+
     }
+
+    private fun writeUserToDB(email: String, phoneNumber: String, fullName: String) {
+        val user = User(fullName, phoneNumber, email, mutableListOf())
+        val userRef = FirebaseUtil.usersRef.child(FirebaseUtil.auth.currentUser!!.uid)
+        userRef.setValue(user)
+    }
+
 }

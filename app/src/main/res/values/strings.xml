@@ -16,4 +16,146 @@ Elevate your calisthenics with our gear. Push limits, achieve greatness, and loo
     <string name="welcome_to_gravity_gear">Welcome to GravityGear</string>
     <string name="forgotten_your_password">Forgotten your password?</string>
     <string name="reset_password">Reset Password</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="name">Name</string>
+    <string name="price">Price: US$%.2f</string>
+    <string name="add_product">Add Product</string>
+    <string name="select_an_image">Select an image</string>
+    <string name="product_type">Product type:</string>
+    <string name="resend_email">Resend email</string>
+    <string name="a_verification_email_has_been_sent_to_your_email_address_please_check_your_inbox_and_click_the_link_in_the_email_to_verify_your_account">A verification email has been sent to your email address. Please check your inbox and click the link in the email to verify your account</string>
+    <string name="verification_email_sent">A verification email has been sent to your email address: %1$s. Please check your inbox and click the link in the email to verify your account.</string>
+    <string name="description">Description</string>
+    <string name="back">Back</string>
+    <string name="all">All</string>
+    <string name="Shoes">Shoes</string>
+    <string name="t_shirt">T-Shirt</string>
+    <string name="hoodies">Hoodies</string>
+    <string name="Short">Short</string>
+    <string name="joggers">Joggers</string>
+    <string name="jackets">Jackets</string>
+    <string name="equipment">Equipment</string>
+    <string name="_40lb_weight_vest_black">40LB Weight Vest - Black</string>
+    <string name="us_120">US$120</string>
+    <string name="product_price">US$%1$.2f</string>
+    <string name="delete">Delete</string>
+    <string name="update_product">Update Product</string>
+
+    <string-array name="product_type_array">
+        <item>Shoes</item>
+        <item>T-Shirt</item>
+        <item>Hoodies</item>
+        <item>Shorts</item>
+        <item>Joggers</item>
+        <item>Jackets</item>
+        <item>Equipment</item>
+    </string-array>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_person">Person</string>
+    <string name="title_shipping">Shipping</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="hello_user">Hello, %s!</string>
+    <string name="remove_from_cart">Remove From Cart</string>
+    <string name="cart">Cart</string>
+    <string name="purchase">Purchase</string>
+    <string name="cart_is_empty">Cart is empty</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="wilaya">Wilaya</string>
+    <string name="commune">Commune</string>
+    <string name="adress">Address</string>
+    <string name="type_of_shippment">Type of shipment</string>
+    <string name="comment">Comment</string>
+    <string name="waiting">Waiting</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="shipped">Shipped</string>
+    <string name="delivered">Delivered</string>
+
+    <string-array name="algeria_wilayas">
+        <item>Adrar</item>
+        <item>Chlef</item>
+        <item>Laghouat</item>
+        <item>Oum El Bouaghi</item>
+        <item>Batna</item>
+        <item>Béjaïa</item>
+        <item>Biskra</item>
+        <item>Béchar</item>
+        <item>Blida</item>
+        <item>Bouira</item>
+        <item>Tamanrasset</item>
+        <item>Tébessa</item>
+        <item>Tlemcen</item>
+        <item>Tiaret</item>
+        <item>Tizi Ouzou</item>
+        <item>Algiers</item>
+        <item>Djelfa</item>
+        <item>Jijel</item>
+        <item>Sétif</item>
+        <item>Saïda</item>
+        <item>Skikda</item>
+        <item>Sidi Bel Abbès</item>
+        <item>Annaba</item>
+        <item>Guelma</item>
+        <item>Constantine</item>
+        <item>Médéa</item>
+        <item>Mostaganem</item>
+        <item>MSila</item>
+        <item>Mascara</item>
+        <item>Ouargla</item>
+        <item>Oran</item>
+        <item>El Bayadh</item>
+        <item>Illizi</item>
+        <item>Bordj Bou Arreridj</item>
+        <item>Boumerdès</item>
+        <item>El Tarf</item>
+        <item>Tindouf</item>
+        <item>Tissemsilt</item>
+        <item>El Oued</item>
+        <item>Khenchela</item>
+        <item>Souk Ahras</item>
+        <item>Tipaza</item>
+        <item>Mila</item>
+        <item>Aïn Defla</item>
+        <item>Naama</item>
+        <item>Aïn Témouchent</item>
+        <item>Ghardaïa</item>
+        <item>Relizane</item>
+        <item>Tamanghasset</item>
+        <item>El Menia</item>
+        <item>Ouled Djellal</item>
+        <item>Bordj Badji Mokhtar</item>
+        <item>Béni Abbès</item>
+        <item>Touggourt</item>
+        <item>Djanet</item>
+        <item>In Salah</item>
+        <item>In Guezzam</item>
+    </string-array>
+
+    <string-array name="type_of_shipment_options">
+        <item>Domicile</item>
+        <item>Shop desk</item>
+    </string-array>
+
+    <string name="domicil">Domicil</string>
+    <string name="shop_desk">Shop desk</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="wilaya_region">%s (%s)</string>
+    <string name="there_are_no_orders_currently">There are no orders currently</string>
+    <string name="profile">Profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="orders">Orders</string>
+    <string name="confirm_reception">Confirm Reception</string>
+    <string name="confirm_shipment">Confirm Shipment</string>
+    <string name="add_you_products_here">Add you products here</string>
+    <string name="account">Account</string>
+    <string name="logout">Logout</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

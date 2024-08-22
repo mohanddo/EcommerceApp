@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditAccountActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/CancelBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:gravity="start|center_vertical"
+            android:fontFamily="@font/helveticanowtext_regular"
+            android:text="@string/cancel"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:background="@null"
+            android:textAllCaps="false"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/SaveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginEnd="16dp"
+            android:enabled="false"
+            android:fontFamily="@font/helveticanowtext_regular"
+            android:text="@string/save"
+            android:textColor="@color/gray600"
+            android:textSize="16sp"
+            android:background="@null"
+            android:textAllCaps="false"
+            android:gravity="end|center_vertical"
+            />
+
+    </LinearLayout>
+
+    <com.github.abdularis.civ.CircleImageView
+        android:id="@+id/profilePic"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/pic_default_profile"
+        android:layout_gravity="center"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/EditBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/helveticanowtext_regular"
+        android:text="@string/edit"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:background="@null"
+        android:textAllCaps="false"
+        />
+
+    <EditText
+        android:id="@+id/FullNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meghaoui Mohand Amokrane"
+        android:layout_marginHorizontal="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        />
+
+
+
+</LinearLayout>

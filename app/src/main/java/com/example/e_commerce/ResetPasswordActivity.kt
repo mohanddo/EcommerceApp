@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.e_commerce.databinding.ActivityResetPasswordBinding
+import com.example.e_commerce.utils.FirebaseUtil
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class ResetPasswordActivity : AppCompatActivity() {
-    lateinit var binding : ActivityResetPasswordBinding
+    private lateinit var binding : ActivityResetPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,8 +29,10 @@ class ResetPasswordActivity : AppCompatActivity() {
 
         val resetPassword = binding.resetPassword
         resetPassword.setOnClickListener {
-            val email = binding.email.text.toString()
-            resetPassword(email)
+            val email = binding.email
+            if(!FirebaseUtil.isEditTextEmpty(email)) {
+                resetPassword(email.text.toString())
+            }
         }
 
     }
@@ -46,6 +50,13 @@ class ResetPasswordActivity : AppCompatActivity() {
 
                     val i = Intent(this, SignInActivity::class.java)
                     startActivity(i)
+                    finish()
+                } else {
+                    val errorMessage = when (val exception = task.exception) {
+                        is FirebaseNetworkException -> "Network error. Please try again."
+                        else -> "Error: ${exception?.message}"
+                    }
+                    Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
                 }
             }
     }
