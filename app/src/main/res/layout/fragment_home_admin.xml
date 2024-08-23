@@ -5,16 +5,19 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".admin.HomeAdminFragment"
-        android:paddingTop="16dp">
+        android:background="@color/white"
+        tools:context=".admin.HomeAdminFragment">
 
     <LinearLayout
-
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
-        >
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView2"
@@ -30,7 +33,7 @@
                 android:id="@+id/chipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:chipSpacingHorizontal="0dp"
+                app:chipSpacingHorizontal="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -47,9 +50,11 @@
                     android:text="@string/all"
                     android:textColor="@color/chip_text_color"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Shoes"
@@ -61,9 +66,11 @@
                     android:textColor="@color/chip_text_color"
                     android:textSize="16sp"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_T_shirt"
@@ -75,9 +82,11 @@
                     android:textColor="@color/chip_text_color"
                     android:textSize="16sp"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_hoodies"
@@ -89,9 +98,11 @@
                     android:textColor="@color/chip_text_color"
                     android:textSize="16sp"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_shorts"
@@ -103,9 +114,11 @@
                     android:textColor="@color/chip_text_color"
                     android:textSize="16sp"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_joggers"
@@ -117,9 +130,11 @@
                     android:textColor="@color/chip_text_color"
                     android:textSize="16sp"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_jackets"
@@ -131,9 +146,11 @@
                     android:textColor="@color/chip_text_color"
                     android:textSize="16sp"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_equipment"
@@ -145,11 +162,11 @@
                     android:textColor="@color/chip_text_color"
                     android:textSize="16sp"
                     app:checkedIconEnabled="false"
-                    app:chipBackgroundColor="@color/chip_background_color"
+                    app:chipBackgroundColor="@android:color/white"
                     app:chipIconEnabled="false"
-                    app:chipStrokeWidth="0dp" />
-
-
+                    app:chipStrokeColor="@color/chip_stroke_color"
+                    app:chipStrokeWidth="1dp"
+                    app:rippleColor="@color/chip_ripple_color" />
             </com.google.android.material.chip.ChipGroup>
 
         </HorizontalScrollView>
@@ -157,13 +174,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-
             >
 
         </androidx.recyclerview.widget.RecyclerView>
-
 
     </LinearLayout>
 
