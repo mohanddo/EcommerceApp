@@ -158,4 +158,6 @@ Elevate your calisthenics with our gear. Push limits, achieve greatness, and loo
     <string name="edit">Edit</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="choose_a_picture">Choose a picture</string>
+    <string name="choose_later">Choose Later</string>
 </resources>

@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.e_commerce.admin.ProductsAdminActivity
 import com.example.e_commerce.databinding.ActivitySignInBinding
+import com.example.e_commerce.user.UserActivity
 import com.example.e_commerce.utils.FirebaseUtil
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -85,7 +86,7 @@ class SignInActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val i = Intent(this, ProductsAdminActivity::class.java)
+                    val i = Intent(this, UserActivity::class.java)
                     startActivity(i)
                     finish()
                 } else {

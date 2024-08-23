@@ -28,7 +28,7 @@ object FirebaseUtil {
     private val storage = Firebase.storage
     private var storageRef = storage.reference
     var productsImageRef = storageRef.child("Products")
-
+    val profilePicturesRef = storageRef.child("ProfilePictures")
 
     fun isValidPassword(passwordEditText: EditText): Boolean {
         val password = passwordEditText.text.toString().trim()

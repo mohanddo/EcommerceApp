@@ -90,9 +90,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "User created successfully!", Toast.LENGTH_SHORT).show()
                     writeUserToDB(email, phoneNumber, fullName)
-//                    Util.sendEmailVerification(this)
                     val i = Intent(this, ProductsAdminActivity::class.java)
-//                    i.putExtra("Email", email)
                     startActivity(i)
                 } else {
                     val exceptionMessage = when (task.exception) {

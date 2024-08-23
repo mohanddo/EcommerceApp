@@ -45,7 +45,7 @@ class HomeAdminFragment : Fragment(R.layout.fragment_home_admin) {
 
         val productsListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
+                binding.noProductsText.visibility = View.GONE
                 binding.progressBar.visibility = View.GONE
                 productsList = mutableListOf()
 
