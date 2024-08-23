@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
+    android:gravity="center"
+    android:background="@color/white">
 
-    >
-
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/backButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:drawablePadding="8dp"
         android:drawableStart="@drawable/ic_back"
+        android:textColor="@color/black"
         android:text="@string/back"
         android:fontFamily="@font/helveticanowtext_medium"
-        android:background="@android:color/transparent"
-        android:layout_marginVertical="8dp"
-        android:layout_gravity="start"
-        android:layout_marginStart="32dp"
-        />
+        android:layout_gravity="start" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,10 +36,12 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
                 android:foreground="@drawable/dashed_line"
                 app:cardCornerRadius="24dp"
+                android:elevation="8dp"
                 >
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -56,8 +58,9 @@
 
                     <ImageView
                         android:id="@+id/productImage"
-                        android:layout_width="350dp"
-                        android:layout_height="350dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -69,44 +72,62 @@
                 android:id="@+id/productName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginHorizontal="24dp"
                 android:ems="10"
                 android:inputType="text"
+                android:textColorHint="@color/akli_gray"
                 android:hint="@string/name"
-                android:layout_marginTop="32dp"
-                android:layout_marginHorizontal="32dp"/>
+                android:padding="8dp"
+                android:minHeight="48dp"
+                android:background="@drawable/bck_sigin_input"
+                android:drawableStart="@drawable/ic_pencil"
+                android:drawablePadding="8dp"/>
 
             <EditText
                 android:id="@+id/productPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="24dp"
                 android:ems="10"
                 android:inputType="numberDecimal"
+                android:textColorHint="@color/akli_gray"
                 android:hint="@string/price"
-                android:layout_marginTop="24dp"
-                android:layout_marginHorizontal="32dp"/>
+                android:minHeight="48dp"
+                android:padding="8dp"
+                android:background="@drawable/bck_sigin_input"
+                android:drawableStart="@drawable/ic_money"
+                android:drawablePadding="8dp"/>
 
             <EditText
                 android:id="@+id/productDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="24dp"
+                android:padding="8dp"
                 android:ems="10"
                 android:inputType="textMultiLine"
+                android:textColorHint="@color/akli_gray"
                 android:hint="@string/description"
-                android:layout_marginTop="32dp"
-                android:layout_marginHorizontal="32dp"/>
+                android:background="@drawable/bck_sigin_input"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="8dp"
+                android:minHeight="48dp"/>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="24dp">
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:textColor="@color/black"
                     android:text="@string/product_type"
                     android:gravity="center_vertical"
                     android:layout_marginEnd="8dp"
@@ -124,15 +145,17 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/UpdateProduct"
-        android:layout_width="160dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:layout_marginHorizontal="24dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bck_butt_sing"
         android:fontFamily="@font/helveticanowtext_medium"
         android:text="@string/update_product"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:layout_marginTop="56dp"
         />
 
     <ProgressBar
@@ -145,15 +168,18 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/DeleteBtn"
-        android:layout_width="160dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/butt_resend_email"
         android:fontFamily="@font/helveticanowtext_medium"
         android:text="@string/delete"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="38dp"
         />
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
