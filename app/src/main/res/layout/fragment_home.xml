@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main"
@@ -8,55 +8,53 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         tools:context=".user.HomeFragment"
-        android:paddingTop="16dp">
+        android:background="@color/white">
 
         <LinearLayout
+            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:paddingHorizontal="16dp"
             android:layout_marginBottom="16dp">
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Hello, Meghaoui Mohand!"
-                android:fontFamily="@font/helveticanowtext_medium"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                />
+
 
             <com.github.abdularis.civ.CircleImageView
-                android:layout_width="40dp"
+                android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:src="@drawable/pic_default_profile"
                 app:highlightColor="#80fb1743"
                 />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Meghaoui Mohand!"
+                android:padding="8dp"
+                android:fontFamily="@font/helveticanowtext_medium"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="16dp"
-            android:layout_marginBottom="16sp"
-            android:gravity="end">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search"
+                android:layout_marginEnd="8dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_filter"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_search"
-                android:layout_marginStart="8dp"/>
+
 
         </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -68,4 +66,4 @@
         </androidx.recyclerview.widget.RecyclerView>
 
 
- </LinearLayout>
+ </androidx.appcompat.widget.LinearLayoutCompat>

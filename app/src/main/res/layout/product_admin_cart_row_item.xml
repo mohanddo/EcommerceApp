@@ -5,14 +5,14 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
+    android:elevation="8dp"
     android:layout_marginBottom="16dp"
+    android:layout_marginHorizontal="24dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -27,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/productImage"
-                android:layout_width="320dp"
-                android:layout_height="320dp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
                 android:layout_marginBottom="8dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/pic_weatherproof_jacket" />
@@ -48,6 +48,7 @@
                     android:text="@string/_40lb_weight_vest_black"
                     android:textColor="@color/black"
                     android:textSize="16sp"
+                    android:paddingStart="8dp"
                     />
 
                 <TextView
@@ -61,7 +62,8 @@
                     android:textColor="@color/gray600"
                     android:textSize="16sp"
                     android:gravity="end"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    android:paddingEnd="8dp"/>
 
             </LinearLayout>
 

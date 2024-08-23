@@ -7,6 +7,12 @@
     <color name="orange">#FFA500</color>
     <color name="lightBlue">#2196F3</color>
     <color name="green">#4CAF50</color>
+    <color name="akli_gray">#5F5F5F</color>
+    <color name="chip_text_color_akli">#000000</color>
+    <color name="chip_stroke_color">#DDDDDD</color>
+    <color name="chip_ripple_color">#CCCCCC</color>
+
+
 
 
 </resources>

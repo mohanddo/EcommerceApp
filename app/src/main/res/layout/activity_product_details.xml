@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".user.ProductDetailsActivity">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/backButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="24dp"
+        android:drawablePadding="8dp"
         android:drawableStart="@drawable/ic_back"
+        android:textColor="@color/black"
         android:text="@string/back"
-        android:fontFamily="@font/helveticanowtext_medium"
-        android:background="@android:color/transparent"
-        android:layout_marginVertical="8dp"
         android:layout_gravity="start"
-        android:layout_marginStart="32dp"
-        />
+        android:fontFamily="@font/helveticanowtext_medium"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="24dp"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal">
-
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/productImage"
-            android:layout_width="320dp"
-            android:layout_height="320dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginBottom="12dp"
             android:background="@android:color/transparent"
             android:src="@drawable/pic_weatherproof_jacket" />
 
@@ -47,13 +48,13 @@
                 android:maxWidth="180dp"
                 android:text="@string/_40lb_weight_vest_black"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/productPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/helveticanowtext_regular"
                 android:maxWidth="153dp"
                 android:text="@string/us_120"
@@ -62,15 +63,15 @@
                 />
 
 
-
         <TextView
             android:id="@+id/productDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
+            android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:fontFamily="@font/helveticanowtext_regular"
+            android:lineSpacingExtra="2dp"
             android:lineSpacingMultiplier="1.2"
             android:letterSpacing="-0.04"
             android:text="A durable weatherproof jacket, perfect for outdoor training, providing protection againts wind and rain while keep in you comfortable."
@@ -78,34 +79,29 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addToCartBtn"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
             android:text="@string/add_to_cart"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:fontFamily="@font/helveticanowtext_medium"
             android:textAllCaps="false"
-            android:background="@drawable/bc_sign_up_button"
-            android:layout_marginTop="16dp"
-            />
+            android:background="@drawable/bck_butt_sing" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/removeFromCartBtn"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:text="@string/remove_from_cart"
-            android:backgroundTint="@color/red"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:fontFamily="@font/helveticanowtext_medium"
             android:textAllCaps="false"
-            android:background="@drawable/bc_sign_up_button"
-            android:layout_marginTop="16dp"
-            />
+            android:background="@drawable/butt_resend_email" />
 
     </LinearLayout>
 
-
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

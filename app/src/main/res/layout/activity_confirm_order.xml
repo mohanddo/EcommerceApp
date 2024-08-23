@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".user.ConfirmOrderActivity">
 
 
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/backBtn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:drawableStart="@drawable/ic_back_white"
-        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
+        android:drawableStart="@drawable/ic_back"
+        android:drawablePadding="8dp"
         android:text="@string/confirm_order"
         android:textSize="18sp"
         android:textAlignment="textStart"
         android:layout_gravity="start"
-        android:textColor="@android:color/white"
-        android:textAllCaps="false"
-        android:paddingHorizontal="32dp"
+        android:textColor="@android:color/black"
         android:fontFamily="@font/helveticanowtext_medium"/>
 
 <ScrollView
@@ -34,106 +36,138 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
     <EditText
         android:id="@+id/fullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="16dp"
         android:ems="10"
+        android:textColorHint="@color/akli_gray"
         android:hint="@string/full_name"
-        android:inputType="text" />
+        android:inputType="text"
+        android:padding="10dp"
+        android:background="@drawable/bck_sigin_input"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_person2"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
+        android:textColorHint="@color/akli_gray"
         android:hint="@string/phone_number"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:padding="8dp"
+        android:background="@drawable/bck_sigin_input"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_phone"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/wilaya"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
+        android:textColorHint="@color/akli_gray"
         android:hint="@string/wilaya"
-        android:inputType="text" />
-
+        android:inputType="text"
+        android:padding="8dp"
+        android:background="@drawable/bck_sigin_input"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_map"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/commune"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="24dp"
         android:ems="10"
+        android:textColorHint="@color/akli_gray"
         android:hint="@string/commune"
         android:inputType="text"
         android:layout_marginBottom="16dp"
-        />
+        android:padding="8dp"
+        android:background="@drawable/bck_sigin_input"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_map"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="24dp"
         android:ems="10"
+        android:textColorHint="@color/akli_gray"
         android:hint="@string/adress"
         android:inputType="text"
         android:layout_marginBottom="16dp"
-        />
+        android:padding="8dp"
+        android:background="@drawable/bck_sigin_input"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_location"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/typeOfShippment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="24dp"
         android:ems="10"
+        android:textColorHint="@color/akli_gray"
         android:hint="@string/type_of_shippment"
         android:inputType="text"
         android:layout_marginBottom="16dp"
-        />
+        android:padding="8dp"
+        android:background="@drawable/bck_sigin_input"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_shipping2"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="5"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="24dp"
         android:ems="10"
+        android:textColorHint="@color/akli_gray"
         android:hint="@string/comment"
         android:inputType="textMultiLine"
         android:layout_marginBottom="16dp"
         android:gravity="top"
-        />
+        android:lineSpacingExtra="2dp"
+        android:lineSpacingMultiplier="1.2"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:background="@drawable/bck_sigin_input"/>
     </LinearLayout>
 
 </ScrollView>
 
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ConfirmBtn"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="44dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/confirm_order"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:fontFamily="@font/helveticanowtext_medium"
         android:textAllCaps="false"
-        android:background="@drawable/bc_sign_up_button"
-        android:layout_marginBottom="16dp"
+        android:background="@drawable/bck_butt_sing"
+        android:layout_marginTop="24dp"
         />
 
     <ProgressBar
@@ -147,4 +181,4 @@
 
 
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

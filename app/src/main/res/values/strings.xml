@@ -44,6 +44,7 @@ Elevate your calisthenics with our gear. Push limits, achieve greatness, and loo
     <string name="product_price">US$%1$.2f</string>
     <string name="delete">Delete</string>
     <string name="update_product">Update Product</string>
+    <string name="akli_reset_password">Please enter your email address below to reset your password. We will send you an email with instructions on how to reset your password.</string>
 
     <string-array name="product_type_array">
         <item>Shoes</item>
