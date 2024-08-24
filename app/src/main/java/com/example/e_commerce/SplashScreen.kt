@@ -99,7 +99,7 @@ class SplashScreen : AppCompatActivity() {
     }
 
     private fun navigateToHome() {
-        val intent = Intent(this@SplashScreen, UserActivity::class.java)
+        val intent = Intent(this@SplashScreen, ProductsAdminActivity::class.java)
         startActivity(intent)
         Log.e("Home", "Going to home")
         finish()

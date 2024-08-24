@@ -51,21 +51,28 @@ class SignInActivity : AppCompatActivity() {
 
         //add to fixe the password
 
+        binding.password.setOnClickListener {
+            binding.passwordLayout.hint = ""
+        }
+
         binding.password.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
                 if (!s.isNullOrEmpty()) {
-                    // Clear the hint in the TextInputLayout when the user starts typing
                     binding.passwordLayout.hint = ""
-                } else {
-                    // Show the hint again if the EditText is empty
-                    binding.passwordLayout.hint = getString(R.string.password)
                 }
             }
 
-            override fun afterTextChanged(s: Editable?) {}
+            override fun afterTextChanged(s: Editable?) {
+
+                if (s.isNullOrEmpty()) {
+                    binding.passwordLayout.hint = getString(R.string.password)
+                }
+            }
         })
+
         //this is the end of the add to fixe password
 
         signin = binding.signin
