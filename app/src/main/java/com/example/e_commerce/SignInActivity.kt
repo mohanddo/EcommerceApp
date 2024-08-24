@@ -51,27 +51,36 @@ class SignInActivity : AppCompatActivity() {
 
         //add to fixe the password
 
-        binding.password.setOnClickListener {
-            binding.passwordLayout.hint = ""
+        // When the EditText gains focus, clear the hint
+        binding.password.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.passwordLayout.hint = ""
+            } else {
+                // Restore hint if EditText loses focus and is empty
+                if (binding.password.text.isNullOrEmpty()) {
+                    binding.passwordLayout.hint = getString(R.string.password)
+                }
+            }
         }
 
         binding.password.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
+                // Clear the hint when the user starts typing
                 if (!s.isNullOrEmpty()) {
                     binding.passwordLayout.hint = ""
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {
-
+                // Restore the hint if the EditText is empty after typing
                 if (s.isNullOrEmpty()) {
                     binding.passwordLayout.hint = getString(R.string.password)
                 }
             }
         })
+
 
         //this is the end of the add to fixe password
 
