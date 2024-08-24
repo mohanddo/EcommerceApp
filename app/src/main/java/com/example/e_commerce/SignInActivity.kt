@@ -1,11 +1,13 @@
 package com.example.e_commerce
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.SpannableString
 import android.text.TextWatcher
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
@@ -16,8 +18,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.e_commerce.admin.ProductsAdminActivity
 import com.example.e_commerce.databinding.ActivitySignInBinding
+import com.example.e_commerce.models.User
 import com.example.e_commerce.user.UserActivity
 import com.example.e_commerce.utils.FirebaseUtil
+import com.example.e_commerce.utils.FirebaseUtil.usersRef
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +29,9 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthRecentLoginRequiredException
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 class SignInActivity : AppCompatActivity() {
@@ -123,9 +130,7 @@ class SignInActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val i = Intent(this, UserActivity::class.java)
-                    startActivity(i)
-                    finish()
+                    fetchUserData()
                 } else {
                     val exceptionMessage = when (task.exception) {
                         is FirebaseAuthInvalidCredentialsException, is
@@ -140,6 +145,25 @@ class SignInActivity : AppCompatActivity() {
                 }
                 progressBar.visibility = View.GONE
             }
+    }
+
+    private fun fetchUserData() {
+        val userListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.getValue(User::class.java)?.let {
+                    FirebaseUtil.user = it
+                    val i = Intent(this@SignInActivity, UserActivity::class.java)
+                    startActivity(i)
+                    finish()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w(TAG, "loadUser:onCancelled", databaseError.toException())
+            }
+        }
+
+        usersRef.child(FirebaseUtil.auth.uid!!).addListenerForSingleValueEvent(userListener)
     }
 
 }

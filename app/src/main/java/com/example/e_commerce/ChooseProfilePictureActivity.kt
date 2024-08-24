@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -23,29 +24,28 @@ import java.io.ByteArrayOutputStream
 
 class ChooseProfilePictureActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChooseProfilePictureBinding
-    private lateinit var chooseProfilePicBtn: AppCompatButton
     private lateinit var profilePic: ImageView
     private lateinit var nextBtn: AppCompatButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChooseProfilePictureBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_choose_profile_picture)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        profilePic = binding.profilePic
+
         binding.ChooseLaterBtn.setOnClickListener {
             val i = Intent(this, UserActivity::class.java)
             startActivity(i)
         }
 
-        chooseProfilePicBtn = binding.ChoosePictureBtn
-        chooseProfilePicBtn.setOnClickListener {
-            setImageSelector()
-        }
+        setImageSelector()
+
         nextBtn = binding.nextBtn
         nextBtn.setOnClickListener {
             uploadProfilePicToStorage()
@@ -62,11 +62,12 @@ class ChooseProfilePictureActivity : AppCompatActivity() {
                     nextBtn.isEnabled = true
                 }
             }
-
-        chooseProfilePicBtn.setOnClickListener {
+        binding.ChoosePictureBtn.setOnClickListener {
             val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             changeImage.launch(pickImg)
         }
+
+
     }
 
     private fun uploadProfilePicToStorage() {

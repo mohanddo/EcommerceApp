@@ -27,6 +27,7 @@ class SplashScreen : AppCompatActivity() {
     private var isUserFetched = false
     private var areProductsFetched = false
     private var timerComplete = false
+    private val currentUser = Firebase.auth.currentUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,12 +37,11 @@ class SplashScreen : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val currentUser = Firebase.auth.currentUser
         val splashScreenDuration = 2000L
 
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            if (currentUser == null) {
+            if (currentUser == null && areProductsFetched) {
                 navigateToWelcome()
             }
 
@@ -54,8 +54,8 @@ class SplashScreen : AppCompatActivity() {
 
         if(currentUser != null) {
             fetchUserData()
-            fetchProducts()
         }
+        fetchProducts()
     }
 
 
@@ -87,8 +87,12 @@ class SplashScreen : AppCompatActivity() {
                 val products = dataSnapshot.children.mapNotNull { it.getValue(Product::class.java) }
                 FirebaseUtil.products = products
                 areProductsFetched = true
-                if (timerComplete && isUserFetched) {
-                    navigateToHome()
+                if(timerComplete) {
+                    if(currentUser == null) {
+                        navigateToWelcome()
+                    } else if (isUserFetched) {
+                        navigateToHome()
+                    }
                 }
             }
 
