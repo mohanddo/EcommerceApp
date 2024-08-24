@@ -26,7 +26,7 @@
         app:itemIconSize="24dp"
         app:itemIconTint="@color/bottom_navigation"
         app:itemTextColor="@color/bottom_navigation"
-        app:rippleColor="@android:color/transparent"
+        app:itemRippleColor="#7E7E7E"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
