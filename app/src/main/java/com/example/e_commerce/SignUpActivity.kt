@@ -1,5 +1,6 @@
 package com.example.e_commerce
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -19,11 +20,16 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.e_commerce.admin.ProductsAdminActivity
 import com.example.e_commerce.databinding.ActivitySignUpBinding
 import com.example.e_commerce.models.User
+import com.example.e_commerce.user.UserActivity
 import com.example.e_commerce.utils.FirebaseUtil
+import com.example.e_commerce.utils.FirebaseUtil.usersRef
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 
 class SignUpActivity : AppCompatActivity() {
@@ -128,8 +134,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "User created successfully!", Toast.LENGTH_SHORT).show()
                     writeUserToDB(email, phoneNumber, fullName)
-                    val i = Intent(this, ProductsAdminActivity::class.java)
-                    startActivity(i)
+                    fetchUserData()
                 } else {
                     val exceptionMessage = when (task.exception) {
                         is FirebaseAuthInvalidCredentialsException -> "Invalid email format."
@@ -151,6 +156,25 @@ class SignUpActivity : AppCompatActivity() {
         val user = User(fullName, phoneNumber, email, mutableListOf())
         val userRef = FirebaseUtil.usersRef.child(FirebaseUtil.auth.currentUser!!.uid)
         userRef.setValue(user)
+    }
+
+    private fun fetchUserData() {
+        val userListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.getValue(User::class.java)?.let {
+                    FirebaseUtil.user = it
+                    val i = Intent(this@SignUpActivity, UserActivity::class.java)
+                    startActivity(i)
+                    finish()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w(TAG, "loadUser:onCancelled", databaseError.toException())
+            }
+        }
+
+        usersRef.child(FirebaseUtil.auth.uid!!).addListenerForSingleValueEvent(userListener)
     }
 
 }

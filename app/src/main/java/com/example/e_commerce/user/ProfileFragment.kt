@@ -19,6 +19,7 @@ import com.example.e_commerce.utils.FirebaseUtil.products
 import com.example.e_commerce.utils.FirebaseUtil.user
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -34,6 +35,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         binding.fullName.text = name
         binding.email.text = user!!.email
         binding.phoneNumber.text = user!!.phoneNumber
+        bundle?.getString("NewProfilePicUri")?.let {
+            Picasso.get().load(it).into(binding.profilePic)
+        }
+
 
         binding.EditBtn.setOnClickListener {
             val i = Intent(requireContext(), EditAccountActivity::class.java)

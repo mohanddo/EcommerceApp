@@ -29,11 +29,18 @@ class UserActivity : AppCompatActivity() {
 
         val bottomNavigationView = binding.bottomNavigationView
 
-        if (intent.getStringExtra("NewName") == null) {
+        val bundle = Bundle()
+        if (intent.getStringExtra("NewName") == null && intent.getStringExtra("NewProfilePicUri") == null) {
             setCurrentFragment(homeFragment)
         } else {
-            val bundle = Bundle()
-            bundle.putString("FullName", intent.getStringExtra("NewName"))
+            if (intent.getStringExtra("NewName") != null) {
+                bundle.putString("FullName", intent.getStringExtra("NewName"))
+            }
+
+            if (intent.getStringExtra("NewProfilePicUri") != null) {
+                bundle.putString("NewProfilePicUri", intent.getStringExtra("NewProfilePicUri"))
+            }
+
             profileFragment.arguments = bundle
             bottomNavigationView.selectedItemId = R.id.navigation_person
             setCurrentFragment(profileFragment)
