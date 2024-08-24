@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -18,6 +19,7 @@ import com.example.e_commerce.models.Order
 import com.example.e_commerce.utils.FirebaseUtil
 import com.example.e_commerce.utils.FirebaseUtil.auth
 import com.example.e_commerce.utils.FirebaseUtil.isEditTextEmpty
+import com.example.e_commerce.utils.FirebaseUtil.isTextViewEmpty
 import com.example.e_commerce.utils.FirebaseUtil.ordersRef
 import com.example.e_commerce.utils.FirebaseUtil.user
 import com.example.e_commerce.utils.FirebaseUtil.usersRef
@@ -26,8 +28,8 @@ class ConfirmOrderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityConfirmOrderBinding
     private lateinit var fullName: EditText
     private lateinit var phoneNumber: EditText
-    private lateinit var wilayaEditText: EditText
-    private lateinit var typeOfShipmentEditText: EditText
+    private lateinit var wilayaTextView: TextView
+    private lateinit var typeOfShipmentTextView: TextView
     private lateinit var communeEditText: EditText
     private lateinit var addressEditText: EditText
     private lateinit var commentEditText: EditText
@@ -56,15 +58,15 @@ class ConfirmOrderActivity : AppCompatActivity() {
         phoneNumber.setText(user!!.phoneNumber)
 
         val wilayasList = resources.getStringArray(R.array.algeria_wilayas)
-        wilayaEditText = binding.wilaya
+        wilayaTextView = binding.wilaya
         binding.wilaya.setOnClickListener {
-            alertDialog(wilayasList, "Choose you wilaya", wilayaEditText)
+            alertDialog(wilayasList, "Choose you wilaya", wilayaTextView)
         }
 
         val typeOfShippmentList = resources.getStringArray(R.array.type_of_shipment_options)
-        typeOfShipmentEditText = binding.typeOfShippment
-        typeOfShipmentEditText.setOnClickListener {
-            alertDialog(typeOfShippmentList, "Select your shipment type", typeOfShipmentEditText)
+        typeOfShipmentTextView = binding.typeOfShippment
+        typeOfShipmentTextView.setOnClickListener {
+            alertDialog(typeOfShippmentList, "Select your shipment type", typeOfShipmentTextView)
         }
 
         confirmBtn = binding.ConfirmBtn
@@ -75,7 +77,7 @@ class ConfirmOrderActivity : AppCompatActivity() {
         }
     }
 
-    private fun alertDialog(options: Array<String>, title: String, editText: EditText) {
+    private fun alertDialog(options: Array<String>, title: String, editText: TextView) {
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle(title)
@@ -89,8 +91,9 @@ class ConfirmOrderActivity : AppCompatActivity() {
     }
 
     private fun areAllFielsNotEmpty() : Boolean {
-        if (isEditTextEmpty(fullName) || isEditTextEmpty(phoneNumber) || isEditTextEmpty(wilayaEditText)
-            || isEditTextEmpty(communeEditText) || isEditTextEmpty(addressEditText) || isEditTextEmpty(typeOfShipmentEditText)) {
+        if (isEditTextEmpty(fullName) || isEditTextEmpty(phoneNumber) || isTextViewEmpty(wilayaTextView)
+            || isEditTextEmpty(communeEditText) || isEditTextEmpty(addressEditText) || isTextViewEmpty(typeOfShipmentTextView)
+        ) {
             return false
         } else {
             return true
@@ -112,10 +115,10 @@ class ConfirmOrderActivity : AppCompatActivity() {
             orderId!!,
             fullName.text.toString(),
             phoneNumber.text.toString(),
-            wilayaEditText.text.toString(),
+            wilayaTextView.text.toString(),
             communeEditText.text.toString(),
             addressEditText.text.toString(),
-            typeOfShipmentEditText.text.toString(),
+            typeOfShipmentTextView.text.toString(),
             commentEditText.text.toString(),
             intent.getStringExtra("TotalPrice")!!,
             intent.getStringArrayExtra("ProductNames")!!.toList(),

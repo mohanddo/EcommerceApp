@@ -32,7 +32,9 @@
             android:fontFamily="@font/helveticanowtext_medium"
             android:text="Orders"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:drawablePadding="8dp"
+            android:drawableEnd="@drawable/ic_shipping2"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

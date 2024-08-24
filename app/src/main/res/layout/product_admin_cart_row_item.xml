@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/productContainer"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/productContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
-    android:elevation="8dp"
-    android:layout_marginBottom="16dp"
-    android:layout_marginHorizontal="24dp"
-    >
+    android:elevation="4dp"
+    android:layout_margin="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/pic_weatherproof_jacket"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/productInfo" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/productInfo"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginBottom="8dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/pic_weatherproof_jacket" />
+            app:layout_constraintEnd_toEndOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/productName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/helveticanowtext_medium"
-                    android:lineSpacingMultiplier="1.2"
-                    android:maxWidth="180dp"
-                    android:text="@string/_40lb_weight_vest_black"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:paddingStart="8dp"
-                    />
-
-                <TextView
-                    android:id="@+id/productPrice"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/helveticanowtext_regular"
-                    android:maxWidth="153dp"
+                    android:text="@string/_40lb_weight_vest_black"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/helveticanowtext_medium"
+                    android:lineSpacingMultiplier="1.2"
+                    android:maxWidth="180dp"
+                    android:paddingStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:id="@+id/productPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/us_120"
                     android:textColor="@color/gray600"
                     android:textSize="16sp"
+                    android:fontFamily="@font/helveticanowtext_regular"
                     android:gravity="end"
-                    android:layout_gravity="center_vertical"
-                    android:paddingEnd="8dp"/>
-
+                    android:paddingEnd="8dp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -74,9 +74,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_delete"
+            android:backgroundTint="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:backgroundTint="@android:color/transparent"/>
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

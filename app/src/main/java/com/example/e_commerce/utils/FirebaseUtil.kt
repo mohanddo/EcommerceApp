@@ -3,6 +3,7 @@ package com.example.e_commerce.utils
 import android.content.Context
 import android.util.Log
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.e_commerce.models.Product
 import com.example.e_commerce.models.User
@@ -54,6 +55,16 @@ object FirebaseUtil {
         if (text.isEmpty()) {
             edittext.error = "Please fill out this field"
             edittext.requestFocus()
+            return true
+        }
+        return false
+    }
+
+    fun isTextViewEmpty(textview: TextView) : Boolean {
+        val text = textview.text.toString().trim()
+        if (text.isEmpty()) {
+            textview.error = "Please fill out this field"
+            textview.requestFocus()
             return true
         }
         return false

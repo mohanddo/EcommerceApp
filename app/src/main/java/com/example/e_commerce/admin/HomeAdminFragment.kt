@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.e_commerce.R
 import com.example.e_commerce.adapters.ProductAdminAdapter
@@ -41,7 +42,8 @@ class HomeAdminFragment : Fragment(R.layout.fragment_home_admin) {
         }
 
         val recyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+
 
         val productsListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

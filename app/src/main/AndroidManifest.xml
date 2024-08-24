@@ -20,6 +20,7 @@
             android:exported="false" />
         <activity
             android:name=".EditAccountActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".user.ConfirmOrderActivity"
@@ -33,12 +34,14 @@
             android:label="@string/title_activity_user" />
         <activity
             android:name=".admin.ProductUpdateAdminActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".EmailVerificationActivity"
             android:exported="false" />
         <activity
             android:name=".admin.AddProductActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".ResetPasswordActivity"
@@ -48,10 +51,13 @@
             android:exported="false" />
         <activity
             android:name=".SignInActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"
+            />
         <activity
             android:name=".WelcomeActivity"
             android:exported="false" />

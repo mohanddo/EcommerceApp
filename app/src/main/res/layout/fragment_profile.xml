@@ -29,7 +29,7 @@
             android:id="@+id/EditBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.18"
+            android:layout_weight="0.25"
             android:layout_gravity="start"
             android:fontFamily="@font/helveticanowtext_medium"
             android:text="@string/edit"

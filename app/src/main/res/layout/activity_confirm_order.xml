@@ -69,16 +69,17 @@
         android:drawableStart="@drawable/ic_phone"
         android:minHeight="48dp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/wilaya"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
         android:ems="10"
+        android:textSize="18sp"
         android:textColorHint="@color/akli_gray"
         android:hint="@string/wilaya"
-        android:inputType="text"
         android:padding="8dp"
         android:background="@drawable/bck_sigin_input"
         android:drawablePadding="8dp"
@@ -117,15 +118,16 @@
         android:drawableStart="@drawable/ic_location"
         android:minHeight="48dp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/typeOfShippment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
+        android:gravity="center_vertical"
         android:ems="10"
+        android:textSize="18sp"
         android:textColorHint="@color/akli_gray"
         android:hint="@string/type_of_shippment"
-        android:inputType="text"
         android:layout_marginBottom="16dp"
         android:padding="8dp"
         android:background="@drawable/bck_sigin_input"

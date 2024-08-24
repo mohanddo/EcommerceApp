@@ -2,7 +2,9 @@ package com.example.e_commerce
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.text.SpannableString
+import android.text.TextWatcher
 import android.text.style.UnderlineSpan
 import android.util.Log
 import android.view.View
@@ -58,6 +60,26 @@ class SignUpActivity : AppCompatActivity() {
             }
 
         }
+
+        //add to fixe the password
+
+        binding.password.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (!s.isNullOrEmpty()) {
+                    // Clear the hint in the TextInputLayout when the user starts typing
+                    binding.passwordLayout.hint = ""
+                } else {
+                    // Show the hint again if the EditText is empty
+                    binding.passwordLayout.hint = getString(R.string.password)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+        //this is the end of the add to fixe password
+
 
         val signin = binding.signin
         val mSpannableString = SpannableString("Sign In")

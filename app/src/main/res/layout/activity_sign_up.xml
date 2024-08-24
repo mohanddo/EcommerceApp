@@ -91,11 +91,13 @@
             android:background="@drawable/bck_sigin_input"
             android:minHeight="48dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
@@ -104,13 +106,12 @@
                 android:layout_marginHorizontal="24dp"
                 android:padding="8dp"
                 android:ems="10"
-                android:textColorHint="@color/black"
-                android:hint="@string/password"
+                android:textColorHint="@color/akli_gray"
                 android:background="@drawable/bck_sigin_input"
                 android:inputType="textPassword"
                 android:minHeight="48dp"/>
-
         </com.google.android.material.textfield.TextInputLayout>
+
 
 
         <androidx.appcompat.widget.AppCompatButton
